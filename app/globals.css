@@ -146,4 +146,21 @@
   .contact__container {
     @apply max-w-[500px] mx-auto border border-dashed border-gray-200 p-4 md:p-6 rounded-2xl;
   }
+
+  /* page__policy */
+  .page__policy {
+    @apply font-nanumNeo border p-4 pb-4 pt-0 md:p-8 md:pb-8 md:pt-2 border-gray-100 rounded-2xl;
+  }
+  .page__policy > h2 {
+    @apply text-center text-lg mb-2;
+  }
+  .page__policy > h3 {
+    @apply text-sm md:text-base mt-6 mb-1;
+  }
+  .page__policy > p {
+    @apply text-muted-foreground leading-6 text-sm break-keep;
+  }
+  .page__policy li {
+    @apply text-muted-foreground leading-6 text-sm list-disc list-inside ml-2;
+  }
 }

@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "slug": "starbucks-caramel-macchiato",
-    "name": "카라멜 마끼아또",
+    "slug": "starbucks-cold-brew",
+    "name": "콜드 블루",
     "brand": "스타벅스",
-    "image_url": null,
+    "image_url": "/starbucks/starbucks-cold-brew.webp",
     "calories": 250,
     "carbohydrate_g": 38,
     "protein_g": 9,
@@ -15,10 +15,10 @@
   },
   {
     "id": 2,
-    "slug": "mcdonalds-big-mac",
-    "name": "빅맥",
-    "brand": "맥도날드",
-    "image_url": null,
+    "slug": "starbucks-oat-cold-brew",
+    "name": "오트 콜드 블루",
+    "brand": "스타벅스",
+    "image_url": "/starbucks/starbucks-oat-cold-brew.webp",
     "calories": 550,
     "carbohydrate_g": 45,
     "protein_g": 28,

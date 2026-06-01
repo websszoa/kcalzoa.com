@@ -1,9 +1,4 @@
-import {
-  APP_INSTAGRAM_URL,
-  APP_THREADS_URL,
-  APP_GITHUB_URL,
-  APP_YOUTUBE_URL,
-} from "@/lib/constants";
+import { APP_INSTAGRAM_URL, APP_THREADS_URL } from "@/lib/constants";
 
 import {
   LucideIcon,
@@ -13,7 +8,6 @@ import {
   HandHeart,
   Home,
   Newspaper,
-  Rat,
   Cake,
   TrafficCone,
   Star,
@@ -44,7 +38,6 @@ export const basicMenu: MenuItem[] = [
   { icon: Home, label: "홈", href: "/" },
   { icon: Cake, label: "소개", href: "/about" },
   { icon: Newspaper, label: "공지사항", href: "/notice" },
-  { icon: Rat, label: "문의하기", href: "/contact" },
   { icon: Compass, label: "이용약관", href: "/terms" },
   { icon: Drama, label: "개인정보취급방침", href: "/privacy" },
 ];
@@ -65,9 +58,7 @@ export const userMenu: MenuItem[] = [
 // 푸터 메뉴
 export const footerMenu: MenuItem[] = [
   { icon: HandHeart, label: "소개", href: "/about" },
-  { icon: Hamburger, label: "문의사항", href: "/contact?type=inquiry" },
-  { icon: TrafficCone, label: "불편신고", href: "/contact?type=complaint" },
-  { icon: Cctv, label: "수정요청", href: "/contact?type=correction" },
+  { icon: HandHeart, label: "공지사항", href: "/notice" },
   { icon: Compass, label: "이용약관", href: "/terms" },
   { icon: Drama, label: "개인정보취급방침", href: "/privacy" },
 ];

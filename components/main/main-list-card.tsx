@@ -15,19 +15,23 @@ const NUTRIENT_MAX: Record<string, number> = {
   sugar_g: 80,
 };
 
-function resolveCalorieImageUrl(url: string): string | null {
-  if (!url) return null;
-  if (url.startsWith("http")) return url;
-  return `/${url}`;
-}
-
-function getHighContentBadges(item: Pick<CalorieItem, "calories" | "fat_g" | "sugar_g" | "sodium_mg" | "caffeine_mg">) {
+function getHighContentBadges(
+  item: Pick<
+    CalorieItem,
+    "calories" | "fat_g" | "sugar_g" | "sodium_mg" | "caffeine_mg"
+  >,
+) {
   const badges: { label: string; color: string }[] = [];
-  if (item.calories >= 600) badges.push({ label: "고열량", color: "bg-orange-500" });
-  if (item.fat_g >= 25) badges.push({ label: "고지방", color: "bg-yellow-500" });
-  if (item.sugar_g >= 30) badges.push({ label: "고당류", color: "bg-pink-500" });
-  if (item.sodium_mg >= 900) badges.push({ label: "고나트륨", color: "bg-red-500" });
-  if (item.caffeine_mg >= 160) badges.push({ label: "고카페인", color: "bg-purple-500" });
+  if (item.calories >= 600)
+    badges.push({ label: "고열량", color: "bg-orange-500" });
+  if (item.fat_g >= 25)
+    badges.push({ label: "고지방", color: "bg-yellow-500" });
+  if (item.sugar_g >= 30)
+    badges.push({ label: "고당류", color: "bg-pink-500" });
+  if (item.sodium_mg >= 900)
+    badges.push({ label: "고나트륨", color: "bg-red-500" });
+  if (item.caffeine_mg >= 160)
+    badges.push({ label: "고카페인", color: "bg-purple-500" });
   return badges;
 }
 
@@ -44,7 +48,9 @@ function NutrientBar({ label, field, value, unit, color }: NutrientBarProps) {
   const percent = Math.min((value / max) * 100, 100);
   return (
     <div className="flex items-center gap-2">
-      <span className="w-14 shrink-0 text-[11px] text-slate-500 font-anyvid">{label}</span>
+      <span className="w-14 shrink-0 text-[11px] text-slate-500 font-anyvid">
+        {label}
+      </span>
       <div className="relative h-1.5 flex-1 rounded-full bg-gray-100 overflow-hidden">
         <div
           className={`absolute left-0 top-0 h-full rounded-full ${color}`}
@@ -52,7 +58,8 @@ function NutrientBar({ label, field, value, unit, color }: NutrientBarProps) {
         />
       </div>
       <span className="w-14 shrink-0 text-right text-[11px] text-slate-600 font-anyvid">
-        {value}{unit}
+        {value}
+        {unit}
       </span>
     </div>
   );
@@ -71,11 +78,11 @@ export default function MainListCard() {
               {/* 이미지 */}
               <Link
                 href={`/calorie/${item.slug}`}
-                className="relative flex h-[240px] w-[160px] shrink-0 overflow-hidden bg-gray-100"
+                className="relative flex h-[240px] w-[180px] shrink-0 overflow-hidden bg-gray-100"
               >
                 {item.image_url ? (
                   <Image
-                    src={resolveCalorieImageUrl(item.image_url)!}
+                    src={item.image_url}
                     alt={item.name}
                     fill
                     priority={index < 2}
@@ -117,8 +124,6 @@ export default function MainListCard() {
                     ))}
                   </div>
                 </div>
-
-                <div></div>
 
                 {/* 영양소 바 */}
                 <div className="space-y-2">
