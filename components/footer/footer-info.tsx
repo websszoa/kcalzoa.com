@@ -37,9 +37,9 @@ export default function FooterInfo() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-1 group"
+              className="group flex items-center gap-1 transition-colors hover:text-brand"
             >
-              <Icon className="w-4 h-4 group-hover:text-red-500" />
+              <Icon className="h-4 w-4 transition-colors group-hover:text-brand" />
               {item.label}
             </Link>
           );

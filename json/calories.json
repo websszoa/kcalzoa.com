@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "starbucks-cold-brew",
-    "name": "콜드 블루",
+    "name": "콜드 브루",
     "brand": "스타벅스",
     "image_url": "/starbucks/starbucks-cold-brew.webp",
     "calories": 250,
@@ -16,7 +16,7 @@
   {
     "id": 2,
     "slug": "starbucks-oat-cold-brew",
-    "name": "오트 콜드 블루",
+    "name": "오트 콜드 브루",
     "brand": "스타벅스",
     "image_url": "/starbucks/starbucks-oat-cold-brew.webp",
     "calories": 550,

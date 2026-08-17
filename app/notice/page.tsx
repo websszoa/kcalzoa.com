@@ -1,11 +1,14 @@
-import { APP_NAME, APP_ENG_NAME } from "@/lib/constants";
+import type { Metadata } from "next";
+import { APP_NAME } from "@/lib/constants";
 import PageNotice from "@/components/page/page-notice";
 import PageTitle from "@/components/page/page-title";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `${APP_NAME} 공지사항 | ${APP_ENG_NAME} Notice`,
+export const metadata: Metadata = createPageMetadata({
+  title: "공지사항",
   description: `${APP_NAME} 서비스의 업데이트 소식, 시스템 안내, 이벤트 공지 등 중요한 정보를 확인할 수 있는 공지사항 페이지입니다.`,
-};
+  path: "/notice",
+});
 
 export default function NoticePage() {
   return (

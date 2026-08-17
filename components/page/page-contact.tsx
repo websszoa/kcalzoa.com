@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { z } from "zod";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   CircleCheck,
   LoaderCircle,
@@ -12,11 +17,6 @@ import {
   MessageSquareText,
   Send,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 
 const contactSchema = z.object({
   subject: z
@@ -146,11 +146,16 @@ export default function PageContact() {
               placeholder="문의 제목을 입력해 주세요."
               className="h-11"
               aria-invalid={Boolean(errors.subject)}
-              aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+              aria-describedby={
+                errors.subject ? "contact-subject-error" : undefined
+              }
               {...register("subject")}
             />
             {errors.subject ? (
-              <p id="contact-subject-error" className="font-anyvid text-xs text-red-500">
+              <p
+                id="contact-subject-error"
+                className="font-anyvid text-xs text-red-500"
+              >
                 {errors.subject.message}
               </p>
             ) : null}
@@ -167,11 +172,16 @@ export default function PageContact() {
               placeholder="example@email.com"
               className="h-11"
               aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? "contact-email-error" : undefined}
+              aria-describedby={
+                errors.email ? "contact-email-error" : undefined
+              }
               {...register("email")}
             />
             {errors.email ? (
-              <p id="contact-email-error" className="font-anyvid text-xs text-red-500">
+              <p
+                id="contact-email-error"
+                className="font-anyvid text-xs text-red-500"
+              >
                 {errors.email.message}
               </p>
             ) : null}
@@ -186,11 +196,16 @@ export default function PageContact() {
               rows={7}
               placeholder="문의 내용을 10자 이상 입력해 주세요."
               aria-invalid={Boolean(errors.message)}
-              aria-describedby={errors.message ? "contact-message-error" : undefined}
+              aria-describedby={
+                errors.message ? "contact-message-error" : undefined
+              }
               {...register("message")}
             />
             {errors.message ? (
-              <p id="contact-message-error" className="font-anyvid text-xs text-red-500">
+              <p
+                id="contact-message-error"
+                className="font-anyvid text-xs text-red-500"
+              >
                 {errors.message.message}
               </p>
             ) : null}
@@ -205,7 +220,9 @@ export default function PageContact() {
                   <Checkbox
                     id="contact-privacy"
                     checked={field.value}
-                    onCheckedChange={(checked) => field.onChange(checked === true)}
+                    onCheckedChange={(checked) =>
+                      field.onChange(checked === true)
+                    }
                     aria-invalid={Boolean(errors.privacyAgreed)}
                     aria-describedby={
                       errors.privacyAgreed ? "contact-privacy-error" : undefined
@@ -230,7 +247,10 @@ export default function PageContact() {
               </Label>
             </div>
             {errors.privacyAgreed ? (
-              <p id="contact-privacy-error" className="font-anyvid text-xs text-red-500">
+              <p
+                id="contact-privacy-error"
+                className="font-anyvid text-xs text-red-500"
+              >
                 {errors.privacyAgreed.message}
               </p>
             ) : null}

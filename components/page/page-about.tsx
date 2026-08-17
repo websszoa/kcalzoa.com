@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { APP_NAME } from "@/lib/constants";
-import { Hamburger } from "lucide-react";
 
 export default function PageAbout() {
   return (
@@ -28,10 +26,9 @@ export default function PageAbout() {
             </h3>
 
             <p>
-              <strong>{APP_NAME}</strong>는 일상 속 식단과 칼로리를 쉽고 빠르게
-              기록하고 관리할 수 있도록 돕는 서비스입니다. 복잡한 과정 없이
-              간편하게 음식 정보를 확인하고, 나의 섭취 칼로리를 한눈에 파악할 수
-              있도록 구성했습니다.
+              음식별 열량뿐 아니라 탄수화물, 단백질, 지방, 당류 등 주요 영양성분을
+              한곳에서 비교할 수 있도록 정보를 정리합니다. 제품 정보가 변경되거나
+              잘못된 내용이 확인되면 지속적으로 보완하겠습니다.
             </p>
 
             <p>

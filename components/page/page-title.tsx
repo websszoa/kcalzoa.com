@@ -14,9 +14,9 @@ export default function PageTitle({
       <span className="text-xs font-semibold uppercase tracking-[0.35em] text-brand">
         {subtitle}
       </span>
-      <h2 className="font-nanumNeo py-1 md:py-2 text-2xl text-slate-900 md:text-3xl">
+      <h1 className="font-nanumNeo py-1 md:py-2 text-2xl text-slate-900 md:text-3xl">
         {title}
-      </h2>
+      </h1>
       <p className="font-anyvid text-sm text-muted-foreground">{description}</p>
     </div>
   );

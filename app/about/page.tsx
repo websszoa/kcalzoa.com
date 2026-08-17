@@ -1,12 +1,14 @@
-import { APP_ENG_NAME, APP_NAME } from "@/lib/constants";
+import type { Metadata } from "next";
 import PageTitle from "@/components/page/page-title";
 import PageAbout from "@/components/page/page-about";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `${APP_NAME} 소개 | ${APP_ENG_NAME} About`,
+export const metadata: Metadata = createPageMetadata({
+  title: "칼로리조아 소개",
   description:
     "칼로리조아 서비스 소개와 개발 과정, 기술 구성, 앞으로의 운영 방향을 안내합니다.",
-};
+  path: "/about",
+});
 
 export default function IntroPage() {
   return (

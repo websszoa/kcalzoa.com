@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { Ham } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useSheet } from "@/contexts/context-sheet";
 
 import HeaderSheet from "./header-sheet";
 import HeaderInfo from "./header-info";
@@ -11,7 +11,7 @@ import HeaderUser from "./header-user";
 import HeaderNav from "./header-nav";
 
 export default function HeaderRight() {
-  const { isOpen, setIsOpen } = useSheet();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function HeaderRight() {
         <SheetContent>
           <HeaderSheet />
           <HeaderUser />
-          <HeaderNav />
+          <HeaderNav onNavigate={() => setIsOpen(false)} />
           <HeaderInfo />
         </SheetContent>
       </Sheet>

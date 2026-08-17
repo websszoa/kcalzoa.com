@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import {
   APP_DESCRIPTION,
+  APP_ENG_NAME,
+  APP_INSTAGRAM_URL,
   APP_KEYWORDS,
   APP_NAME,
   APP_SITE_URL,
   APP_SLOGAN,
+  APP_THREADS_URL,
 } from "@/lib/constants";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SheetProvider } from "@/contexts/context-sheet";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 
@@ -118,18 +121,48 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${APP_SITE_URL}/#website`,
+        url: APP_SITE_URL,
+        name: APP_NAME,
+        alternateName: APP_ENG_NAME,
+        description: APP_DESCRIPTION,
+        inLanguage: "ko-KR",
+        publisher: { "@id": `${APP_SITE_URL}/#organization` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${APP_SITE_URL}/#organization`,
+        name: APP_NAME,
+        alternateName: APP_ENG_NAME,
+        url: APP_SITE_URL,
+        logo: `${APP_SITE_URL}/icons/icon512.png`,
+        sameAs: [APP_INSTAGRAM_URL, APP_THREADS_URL],
+      },
+    ],
+  };
+
   return (
     <html lang="ko">
       <body
         className={`${anyvid.variable} ${nanumSquare.variable} ${paperlogy.variable}`}
       >
-        <SheetProvider>
-          <TooltipProvider>
-            <Header />
-            <main className="main__container">{children}</main>
-            <Footer />
-          </TooltipProvider>
-        </SheetProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <TooltipProvider>
+          <Header />
+          <main className="main__container">{children}</main>
+          <Footer />
+        </TooltipProvider>
+        <GoogleAnalytics gaId="G-DR1XQP3F0V" />
       </body>
     </html>
   );

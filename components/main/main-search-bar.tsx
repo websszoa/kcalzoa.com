@@ -9,19 +9,19 @@ import {
 
 export default function MainSearchBar() {
   return (
-    <div className="marathon__search__bar">
+    <div className="main__search__bar">
       <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {/* 검색 입력 */}
         <form
           role="search"
-          aria-label="대회 검색"
+          aria-label="음식 검색"
           className="relative flex w-full flex-col gap-2 sm:w-80 sm:flex-row sm:gap-4"
         >
           <div className="flex w-full items-center gap-2">
             <div className="relative w-full">
               <Input
-                aria-label="대회 검색"
-                placeholder="대회명 검색"
+                aria-label="음식 검색"
+                placeholder="음식명 검색"
                 className="h-10 w-full pr-8"
                 maxLength={100}
               />

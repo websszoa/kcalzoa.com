@@ -3,13 +3,15 @@
 import { basicMenu } from "@/lib/menu";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useSheet } from "@/contexts/context-sheet";
 import { usePathname } from "next/navigation";
 
 import HeaderNavLink from "./header-nav-link";
 
-export default function HeaderNav() {
-  const { setIsOpen } = useSheet();
+interface HeaderNavProps {
+  onNavigate: () => void;
+}
+
+export default function HeaderNav({ onNavigate }: HeaderNavProps) {
   const pathname = usePathname();
 
   return (
@@ -25,7 +27,7 @@ export default function HeaderNav() {
               icon={item.icon}
               label={item.label}
               isActive={isActive}
-              onClick={() => setIsOpen(false)}
+              onClick={onNavigate}
             />
           );
         })}
