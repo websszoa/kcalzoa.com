@@ -1,24 +1,21 @@
 import { APP_INSTAGRAM_URL, APP_THREADS_URL } from "@/lib/constants";
-
 import {
   LucideIcon,
   Compass,
   Drama,
-  Hamburger,
   HandHeart,
   Home,
   Newspaper,
   Cake,
-  TrafficCone,
   Star,
   User,
   Gem,
-  Cctv,
   Castle,
   ClipboardList,
   CalendarDays,
   Panda,
   PocketKnife,
+  Mail,
 } from "lucide-react";
 
 export interface MenuItem {
@@ -38,6 +35,7 @@ export const basicMenu: MenuItem[] = [
   { icon: Home, label: "홈", href: "/" },
   { icon: Cake, label: "소개", href: "/about" },
   { icon: Newspaper, label: "공지사항", href: "/notice" },
+  { icon: Mail, label: "문의사항", href: "/contact" },
   { icon: Compass, label: "이용약관", href: "/terms" },
   { icon: Drama, label: "개인정보취급방침", href: "/privacy" },
 ];
@@ -59,6 +57,7 @@ export const userMenu: MenuItem[] = [
 export const footerMenu: MenuItem[] = [
   { icon: HandHeart, label: "소개", href: "/about" },
   { icon: HandHeart, label: "공지사항", href: "/notice" },
+  { icon: Mail, label: "문의사항", href: "/contact" },
   { icon: Compass, label: "이용약관", href: "/terms" },
   { icon: Drama, label: "개인정보취급방침", href: "/privacy" },
 ];

@@ -11,11 +11,13 @@ import {
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SheetProvider } from "@/contexts/context-sheet";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 
 const anyvid = localFont({
   variable: "--font-anyvid",
   display: "swap",
-  preload: false,
+  preload: true,
   src: [
     { path: "../public/fonts/anyvid.woff2", weight: "400", style: "normal" },
   ],
@@ -23,8 +25,8 @@ const anyvid = localFont({
 
 const nanumSquare = localFont({
   variable: "--font-nanumNeo",
-  display: "optional",
-  preload: false,
+  display: "swap",
+  preload: true,
   src: [
     {
       path: "../public/fonts/nanum-square-neo.woff2",
@@ -36,8 +38,8 @@ const nanumSquare = localFont({
 
 const paperlogy = localFont({
   variable: "--font-paperlogy",
-  display: "optional",
-  preload: false,
+  display: "swap",
+  preload: true,
   src: [
     {
       path: "../public/fonts/paperlogy-regular.woff2",
@@ -122,7 +124,11 @@ export default function RootLayout({
         className={`${anyvid.variable} ${nanumSquare.variable} ${paperlogy.variable}`}
       >
         <SheetProvider>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <Header />
+            <main className="main__container">{children}</main>
+            <Footer />
+          </TooltipProvider>
         </SheetProvider>
       </body>
     </html>
